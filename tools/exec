@@ -1,0 +1,3 @@
+#!/bin/sh
+
+docker exec -it `docker ps | grep firefox_1 | cut -f 1 -d " "` bash

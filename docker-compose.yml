@@ -1,0 +1,39 @@
+version: '3.4'
+services:
+    firefox:
+        build: .
+        env_file:
+            - purevpn.env
+        environment:
+            - RESOLUTION=1920x1080
+            - USER=molly
+        privileged: true
+        stdin_open: true
+        tty: true
+        ports:
+            - 6080:80
+            - 5900:5900
+        volumes:
+            - /mnt/raid12T/containers/transmission/watch:/home/molly/watch
+            - /mnt/raid12T/containers/firefox/.mozilla:/home/molly/.mozilla
+            - /mnt/raid12T/containers/firefox/.config:/home/molly/.config
+            - /mnt/raid12T/Src/src/python/reqProc:/home/molly/reqProc
+            - /mnt/raid12T/Videos/torrents_req:/home/molly/requests
+            - /dev/shm:/dev/shm
+            # - /tmp/.X11-unix:/tmp/.X11-unix
+            # - /etc/localtime:/etc/localtime
+            # - /home/tkuster/.Xauthority:/root/.Xauthority:rw
+        healthcheck:
+            test: ["CMD", "/healthcheck.sh"]
+            interval: 10s
+            retries: 300
+            start_period: 30s
+
+    autoheal:
+        restart: always
+        image: willfarrell/autoheal
+        environment:
+        - AUTOHEAL_CONTAINER_LABEL=all
+        - AUTOHEAL_START_PERIOD=30
+        volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
