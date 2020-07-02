@@ -1,6 +1,5 @@
-# transmission
-
-Container to run transmission under purevpn vpn.
+# firefox
+container to firefox under purevpn via vnc
 
 ## Customize
 
@@ -23,4 +22,8 @@ vim purevpn.env
 docker-compose up
 ```
 
-Web interfaces should be at http://localhost:9091/
+To access the desktop:
+
+```
+vinagre localhost:5900
+```
