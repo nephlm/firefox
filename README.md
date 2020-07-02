@@ -1,0 +1,2 @@
+# firefox
+container vpn firefox
