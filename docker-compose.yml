@@ -14,7 +14,7 @@ services:
             - 6080:80
             - 5900:5900
         volumes:
-            - /mnt/raid12T/containers/transmission/watch:/home/molly/watch
+            - /mnt/raid12T/containers/qbittorrent/watch:/home/molly/watch
             - /mnt/raid12T/containers/firefox/.mozilla:/home/molly/.mozilla
             - /mnt/raid12T/containers/firefox/.config:/home/molly/.config
             - /mnt/raid12T/Src/src/python/reqProc:/home/molly/reqProc

@@ -16,7 +16,7 @@ RUN apt-get install -y less vim dnsutils
 # ENV USER=molly
 
 ADD "purevpn/*"  "/home/molly/build/"
-RUN dpkg -i /home/molly/build/purevpn_1.2.3_amd64.deb
+RUN dpkg -i /home/molly/build/purevpn_1.2.5_amd64.deb
 # RUN sed -i 's/-z  $PID/-z $PID/g' /etc/init.d/purevpn
 # RUN sed -i 's/-z $PID/-z "$PID"/g' /etc/init.d/purevpn
 
